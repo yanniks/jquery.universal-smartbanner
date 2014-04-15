@@ -246,7 +246,7 @@
         daysHidden: 15, // Duration to hide the banner after being closed (0 = always show banner)
         daysReminder: 30, // Duration to hide the banner after "VIEW" is clicked *separate from when the close button is clicked* (0 = always show banner)
         container: 'body', // Container where the banner will be injected
-        force: 'android', // Choose 'ios', 'android' or 'windows'. Don't do a browser check, just always show this banner
+        force: null, // Choose 'ios', 'android' or 'windows'. Don't do a browser check, just always show this banner
 		price: '<?php if ($_GET["lang"] == "deutsch") { echo "KOSTENLOS";} else {echo "FREE";} ?>',
 		appStoreLanguage: '<?php if ($_GET["lang"] == "deutsch") { echo "de";} else {echo "us";} ?>',
 		inAppStore: '<?php if ($_GET["lang"] == "deutsch") { echo "Im App Store";} else {echo "On the App Store";} ?>',
