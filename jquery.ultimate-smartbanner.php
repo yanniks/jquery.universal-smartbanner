@@ -1,3 +1,6 @@
+<?php
+	header("Content-type: text/javascript");
+?>
 /*!
  * jQuery Smart Banner
  * Copyright (c) 2012 Arnold Daniels <arnold@jasny.net>
@@ -233,24 +236,24 @@
 
     // override these globally if you like (they are all optional)
     $.smartbanner.defaults = {
-        title: null, // What the title of the app should be in the banner (defaults to <title>)
-        author: null, // What the author of the app should be in the banner (defaults to <meta name="author"> or hostname)
-        price: 'FREE', // Price of the app
-        appStoreLanguage: 'us', // Language code for App Store
-        inAppStore: 'On the App Store', // Text of price for iOS
-        inGooglePlay: 'In Google Play', // Text of price for Android
-        inWindowsStore: 'In the Windows Store', //Text of price for Windows
-        icon: null, // The URL of the icon (defaults to <meta name="apple-touch-icon">)
-        iconGloss: null, // Force gloss effect for iOS even for precomposed
-        button: 'View in Store', // Text for the install button
+        title: 'yanniks.de App', // What the title of the app should be in the banner (defaults to <title>)
+        author: 'Yannik Ehlert', // What the author of the app should be in the banner (defaults to <meta name="author"> or hostname)
+	    icon: null, // The URL of the icon (defaults to <meta name="apple-touch-icon">)
+	    iconGloss: null, // Force gloss effect for iOS even for precomposed
         scale: 'auto', // Scale based on viewport size (set to 1 to disable)
         //speedIn: 300, // Show animation speed of the banner
         //speedOut: 400, // Close animation speed of the banner
         daysHidden: 15, // Duration to hide the banner after being closed (0 = always show banner)
-        daysReminder: 90, // Duration to hide the banner after "VIEW" is clicked *separate from when the close button is clicked* (0 = always show banner)
+        daysReminder: 30, // Duration to hide the banner after "VIEW" is clicked *separate from when the close button is clicked* (0 = always show banner)
         container: 'body', // Container where the banner will be injected
-        force: null // Choose 'ios', 'android' or 'windows'. Don't do a browser check, just always show this banner
-    }
+        force: 'android', // Choose 'ios', 'android' or 'windows'. Don't do a browser check, just always show this banner
+		price: '<?php if ($_GET["lang"] == "deutsch") { echo "KOSTENLOS";} else {echo "FREE";} ?>',
+		appStoreLanguage: '<?php if ($_GET["lang"] == "deutsch") { echo "de";} else {echo "us";} ?>',
+		inAppStore: '<?php if ($_GET["lang"] == "deutsch") { echo "Im App Store";} else {echo "On the App Store";} ?>',
+		inGooglePlay: '<?php if ($_GET["lang"] == "deutsch") { echo "In Google Play";} else {echo "In Google Play";} ?>',
+		inWindowsStore: '<?php if ($_GET["lang"] == "deutsch") { echo "Im Windows Store";} else {echo "In the Windows Store";} ?>',
+		button: '<?php if ($_GET["lang"] == "deutsch") { echo "Im Store angucken";} else {echo "View in Store";} ?>'
+	}
 
     $.smartbanner.Constructor = SmartBanner;
 
